@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux Command," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Record Life">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="这是一篇关于在Linux中如何让命令后台运行的博客. ##普通运行命令我用Go写了一个后台程序,并将其编辑后上传到阿里云的CentOS上.文件名为lm_reader,所以在CentOS上运行该程序可以这样写: 1$ ./lm_reader ##后台运行上面这样做会占用这个终端,无法操作其他命令,只能另起一个终端去操作,很是不便,所以我们可以使用&amp;amp;命令来让其后台运行 1$ ./lm_read">
+<meta name="keywords" content="Linux Command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下让命令后台运行">
+<meta property="og:url" content="http://yoursite.com/2018/11/19/bgrun/index.html">
 <meta property="og:site_name" content="Lim">
-<meta property="og:description" content="Record Life">
+<meta property="og:description" content="这是一篇关于在Linux中如何让命令后台运行的博客. ##普通运行命令我用Go写了一个后台程序,并将其编辑后上传到阿里云的CentOS上.文件名为lm_reader,所以在CentOS上运行该程序可以这样写: 1$ ./lm_reader ##后台运行上面这样做会占用这个终端,无法操作其他命令,只能另起一个终端去操作,很是不便,所以我们可以使用&amp;amp;命令来让其后台运行 1$ ./lm_read">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-19T02:06:19.188Z">
+<meta property="og:updated_time" content="2018-11-19T02:24:30.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="Record Life">
+<meta name="twitter:title" content="Linux下让命令后台运行">
+<meta name="twitter:description" content="这是一篇关于在Linux中如何让命令后台运行的博客. ##普通运行命令我用Go写了一个后台程序,并将其编辑后上传到阿里云的CentOS上.文件名为lm_reader,所以在CentOS上运行该程序可以这样写: 1$ ./lm_reader ##后台运行上面这样做会占用这个终端,无法操作其他命令,只能另起一个终端去操作,很是不便,所以我们可以使用&amp;amp;命令来让其后台运行 1$ ./lm_read">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/19/bgrun/"/>
 
 
 
 
 
-  <title>tags | Lim</title>
+  <title>Linux下让命令后台运行 | Lim</title>
   
 
 
@@ -250,40 +251,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/19/bgrun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lim">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                1 tag in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Linux-Command/" style="font-size: 12px; color: #ccc">Linux Command</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Linux下让命令后台运行</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-19T09:50:16+08:00">
+                2018-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>这是一篇关于在Linux中如何让命令后台运行的博客.</p>
+<p>##普通运行命令<br>我用Go写了一个后台程序,并将其编辑后上传到阿里云的CentOS上.文件名为lm_reader,所以在CentOS上运行该程序可以这样写:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./lm_reader</span><br></pre></td></tr></table></figure>
+<p>##后台运行<br>上面这样做会占用这个终端,无法操作其他命令,只能另起一个终端去操作,很是不便,所以我们可以使用&amp;命令来让其后台运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./lm_reader &amp;</span><br></pre></td></tr></table></figure>
+<p>此时终端会显示如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1] 16198</span><br></pre></td></tr></table></figure>
+<p>然后按Enter,就可以继续操作其他事情了,这时该程序已经在后台运行了.<br>上面那个 16198 是任务Id,当我们需要关闭该后台程序时,使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> 16198</span><br></pre></td></tr></table></figure>
+<p>即可关闭后台程序,如果我们忘记了这个Id,可以使用ps命令来查找</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps | grep lm</span><br></pre></td></tr></table></figure>
+<p>上面的lm是搜索的字符串,也就是lm_reader里面的一些,当然,可以写全,更容易筛选出来.</p>
+<p>##不挂断的后台运行<br>上面我们可以使其后台运行了,但是电脑总是要关的,本地的终端也总会关掉的,一旦关掉,上面的任务照样会被关闭,所以我们需要使用nohup命令告诉终端不要挂断</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nohup ./lm_reader &amp;</span><br></pre></td></tr></table></figure>
+<p>这样我们在关闭终端后,后台代码照样运行</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux-Command/" rel="tag"># Linux Command</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
