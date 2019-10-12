@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lim">
 <meta property="og:description" content="前言祖国母亲生日期间,我的梯子又没了,折腾了一会,都没折腾出来,部分平台都已经停止注册账号了.实在没辙,决定自己购买一个外网服务器,搭个梯子自己用,来个一劳永逸(后面发现这不可能…),于是开启了填坑之旅. 购买云服务器网上简单搜了下,看大家是买什么服务器的,坑爹的是很多购买网站本身都被墙了,好歹找了个vultr这个,简单看了下发现用的人还不少,就选择它了,官网在这,现在买还有优惠.打开网址,注册账">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-11T14:30:04.375Z">
+<meta property="og:updated_time" content="2019-10-12T02:20:46.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="科学上网:搭建自己的SS">
 <meta name="twitter:description" content="前言祖国母亲生日期间,我的梯子又没了,折腾了一会,都没折腾出来,部分平台都已经停止注册账号了.实在没辙,决定自己购买一个外网服务器,搭个梯子自己用,来个一劳永逸(后面发现这不可能…),于是开启了填坑之旅. 购买云服务器网上简单搜了下,看大家是买什么服务器的,坑爹的是很多购买网站本身都被墙了,好歹找了个vultr这个,简单看了下发现用的人还不少,就选择它了,官网在这,现在买还有优惠.打开网址,注册账">
@@ -363,7 +363,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>祖国母亲生日期间,我的梯子又没了,折腾了一会,都没折腾出来,部分平台都已经停止注册账号了.实在没辙,决定自己购买一个外网服务器,搭个梯子自己用,来个一劳永逸(后面发现这不可能…),于是开启了填坑之旅.</p>
-<h2 id="购买云服务器"><a href="#购买云服务器" class="headerlink" title="购买云服务器"></a>购买云服务器</h2><p>网上简单搜了下,看大家是买什么服务器的,坑爹的是很多购买网站本身都被墙了,好歹找了个vultr这个,简单看了下发现用的人还不少,就选择它了,<a href="https://vultr.com" target="_blank" rel="noopener">官网在这</a>,现在买还有优惠.<br>打开网址,注册账号,这些都不赘述了,按流程来就行,注册好后,进入<a href="https://my.vultr.com/" target="_blank" rel="noopener">这个网址</a>,然后点击左边的Billing这块.选择Alipay或者WeChat Pay,充入10美元,充值前注意看页面右方是否有优惠提示,目前的优惠是充10美元送50美元.<br>这时钱已经交了,开始创建服务器实例,点击左边Products,点击创建按钮(页面上有,很好找),然后从上到下分别选<br>Choose Server: Cloud Compute,<br>Server Location: 先选东京(Tokyo),这里有坑,后面会说<br>Server Type: 这个就看你个人喜好了,我选CentOS7<br>Server Size: $5够用啦<br>其他的就不用填了,直接点击右下方 Deploy Now,就开始创建了<br>正常而言,这就已经创建好了,但是说了就坑,坑就在这了,这个服务器分配的IP地址,很多已经被墙了,至于原因嘛不用去管,就是说,被墙了的IP是没用的,无法满足我们的需求.如何区分是否被墙了?最简单的方法就是ping这个IP地址,ping不通就没用.<br>解决办法:不停按上面的流程创建云服务器,获取不同的IP地址去试,碰运气了…创建一个销毁之前的,不然就重复扣费了(PS:每销毁一个,也会扣点钱的).我是创建了十几个才碰上一个可以用的.<br>提示:创建时,如果是先销毁,再创建,而且你选择的Server Location不变,那么很大几率再次创建分配给你的IP是一样的,避免这个有两个方法,第一,每次选不同的Server Location,第二,先创建,再销毁之前的.</p>
+<h2 id="购买云服务器"><a href="#购买云服务器" class="headerlink" title="购买云服务器"></a>购买云服务器</h2><p>网上简单搜了下,看大家是买什么服务器的,坑爹的是很多购买网站本身都被墙了,好歹找了个vultr这个,简单看了下发现用的人还不少,就选择它了,<a href="https://vultr.com" target="_blank" rel="noopener">官网在这</a>,现在买还有优惠.<br>打开网址,注册账号,这些都不赘述了,按流程来就行,注册好后,进入<a href="https://my.vultr.com/" target="_blank" rel="noopener">这个网址</a>,然后点击左边的Billing这块.选择Alipay或者WeChat Pay,充入10美元,充值前注意看页面右方是否有优惠提示,目前的优惠是充10美元送50美元.<br>充值完后,就可以开始创建服务器实例了,点击左边Products,点击创建按钮(页面上有,很好找),然后从上到下分别选<br>Choose Server: Cloud Compute,<br>Server Location: 先选东京(Tokyo),这里有坑,后面会说<br>Server Type: 这个就看你个人喜好了,我选CentOS7<br>Server Size: $5够用啦<br>其他的就不用填了,直接点击右下方 Deploy Now,就开始创建了<br>正常而言,这就已经创建好了,但是说了有坑,坑就在这了,这个服务器分配的IP地址,很多已经被墙了,至于原因嘛不用去管,就是说,被墙了的IP是没用的,无法满足我们的需求.如何区分是否被墙了?最简单的方法就是ping这个IP地址,ping不通就没用.<br>解决办法:不停按上面的流程创建云服务器,获取不同的IP地址去试,碰运气了…创建一个销毁之前的,不然就重复扣费了(PS:每销毁一个,也会扣点钱的).我是创建了十几个才碰上一个可以用的.<br>提示:创建时,如果是先销毁,再创建,而且你选择的Server Location不变,那么很大几率再次创建分配给你的IP是一样的,避免这个有两个方法,第一,每次选不同的Server Location,第二,先创建,再销毁之前的.</p>
 <h2 id="搭建SS"><a href="#搭建SS" class="headerlink" title="搭建SS"></a>搭建SS</h2><p>我是Mac电脑,直接在网上找了一篇博客,很详细的描述了怎么安装:<a href="http://www.imooc.com/article/details/id/271182,这个搭建完就可以直接使用了" target="_blank" rel="noopener">http://www.imooc.com/article/details/id/271182,这个搭建完就可以直接使用了</a>.</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一趟下来,其实还算顺利,除了中间碰运气那会有点让人抓狂,其他都还好,而且对于新用户而言,相当于10美元用一年,还是蛮划算的.缺点就是害怕哪天我的IP又被封了,到时又要抓狂的创建/注销.</p>
 
