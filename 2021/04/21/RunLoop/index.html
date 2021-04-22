@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="QBook," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Here&apos;s something encrypted, password is required to continue reading.">
-<meta name="keywords" content="QBook">
+<meta name="description" content="RunLoopRunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题RunLoop是什么?RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制 这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么这个技术使用的场景OSX和iOS系统,Mac,iPhone等苹果设备每个线程内部都有一个消息循环(RunLoop),只有主线程的RunLoop默认">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QBook_01">
-<meta property="og:url" content="http://yoursite.com/2020/01/12/QBook-01/index.html">
+<meta property="og:title" content="RunLoop">
+<meta property="og:url" content="http://yoursite.com/2021/04/21/RunLoop/index.html">
 <meta property="og:site_name" content="Lim">
-<meta property="og:description" content="Here&apos;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="RunLoopRunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题RunLoop是什么?RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制 这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么这个技术使用的场景OSX和iOS系统,Mac,iPhone等苹果设备每个线程内部都有一个消息循环(RunLoop),只有主线程的RunLoop默认">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-12T12:23:21.207Z">
+<meta property="og:updated_time" content="2021-04-22T06:01:02.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QBook_01">
-<meta name="twitter:description" content="Here&apos;s something encrypted, password is required to continue reading.">
+<meta name="twitter:title" content="RunLoop">
+<meta name="twitter:description" content="RunLoopRunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题RunLoop是什么?RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制 这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么这个技术使用的场景OSX和iOS系统,Mac,iPhone等苹果设备每个线程内部都有一个消息循环(RunLoop),只有主线程的RunLoop默认">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/12/QBook-01/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/04/21/RunLoop/"/>
 
 
 
 
 
-  <title>QBook_01 | Lim</title>
+  <title>RunLoop | Lim</title>
   
 
 
@@ -263,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/QBook-01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/21/RunLoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lim">
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QBook_01</h1>
+          <h1 class="post-title" itemprop="name headline">RunLoop</h1>
         
 
         <div class="post-meta">
@@ -292,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-12T19:56:56+08:00">
-                2020-01-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-21T17:41:31+08:00">
+                2021-04-21
               </time>
             
 
@@ -315,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/QBook/" itemprop="url" rel="index">
-                    <span itemprop="name">QBook</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -333,8 +332,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/12/QBook-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/12/QBook-01/" itemprop="commentCount"></span>
+                <a href="/2021/04/21/RunLoop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/21/RunLoop/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,15 +361,12 @@
       
 
       
-        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">Hey, password is required here.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="a1ddc7bed287793c30673147c396fe3bcc28f42296207ccbde1d6f120f069fc6">07449e40be21989ed1b0c6a7123cd27f69302b6750b3262ffc2008c9de61d6ae0ba6edabb6863a71dda2d10f6c90149876095f2f20c5d7e93bf2dfcda49c731f688d0466d7193c4ea7ecbcd2def9fc6b3a1f3356d18942d9b3370ccd07f92786c3fb995cb31cc6fb9a4102d14a9eeb1f67c7e335f40fbaf5c328c1a908e1a23dcd19647af6ac8056fff279defd591a3247cc79b72e8708f9069e1b3e5760590c316b12b5eeb44256611125a14cbc2e95fee116390e2480736416f91ffcd086efa41cda35ae74fd45226d0d70c5b3263db2f29a8720c7036af6e38599f57e71b7335823003892065ae3c7ee2a848e5057196284f6041af2cc7ecbd8888561b70147efe68c927aa3e697daa9eef17bad895b19c710e465f793e5b0fdd3fb37bb4f3e7edcf168bcef41811c308a027b5e104a279050743035fca5c0d14810368f64e7ea3365d6fb9398917af6a932ffda10bcb68243011f0b581fac5f395e8ab42880b256119c71f18af8cfe816d2c1d54e663eced8c92b971c7cc645c3367ba0f7a006d5a4fb02c082d5969acf653840431b5e6f8338021f49468b2d835dbd07c94356f86676b9c1e1c5f58c29e2479569d19809fffb6897325b1191331f70a60b71dc1582c2b184349b29d262582458b43b6f070a6fa01dcdfed50e7f4b2770e3b8775bd47ef75cfa727e2cbd0086bedcd13c6960b078008ddb2ec644bfe3e1c67cd692582215b8151a45fe0d0e9edb43800ec718f2d29553b9ddae0de377d166432dcd04f24cbaef6cec5ba8c2c6e616dc58ab204b879481b88e4ce0b667794492096356e6b680dedb4431c76f37020ebb0a1e05721c311023feeec794ff01f880ae136cadaeb818df500d489bc291dbaac4671c83e0f5a73aab4baba014ac07ee001f137ed815f3eec83f53274b3d89f2c88dbe546cb10844ba1763a6ba2802eade41f148aeda874484894a7b9ee3d17b16c0d3acb1124ec9d3741063914de78230122fce75c7e19eb6843e9ab6925e654407763ad5ae864939f5fa6c9369be3eb3557fc406f4b1499d06f231448ac121d64b75a400b4f6678ece1e6198f70a7126bb2a75c018a63d8cf355f288c1b8e311321f925d352c60bdbb8c84e178549f83393ef24719d36a6dfadd4ba2a55a65ccf3db5d264849d079517562c4a47a374c4ff27ca2b133ad6e66d60557a7e6b8375422685ef1cf102b2c39617f32cf287f8b5b7b9350cf537161e24ddd8d89</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <h3 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h3><h4 id="RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题"><a href="#RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题" class="headerlink" title="RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题"></a>RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h4><p>RunLoop是什么?<br>RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制</p>
+<h4 id="这个技术的优势和劣势分别是什么-或者说-这个技术的trade-off是什么"><a href="#这个技术的优势和劣势分别是什么-或者说-这个技术的trade-off是什么" class="headerlink" title="这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么"></a>这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么</h4><h4 id="这个技术使用的场景"><a href="#这个技术使用的场景" class="headerlink" title="这个技术使用的场景"></a>这个技术使用的场景</h4><p>OSX和iOS系统,Mac,iPhone等苹果设备<br>每个线程内部都有一个消息循环(RunLoop),只有主线程的RunLoop默认开启,子线程的RunLoop默认不开启.</p>
+<h4 id="技术的组成部分和关键点"><a href="#技术的组成部分和关键点" class="headerlink" title="技术的组成部分和关键点"></a>技术的组成部分和关键点</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CFRunLoopRef</span><br><span class="line">|-&gt; CFRunLoopModeRef</span><br><span class="line">	|--&gt; CFRunLoopSourceRef</span><br><span class="line">	|--&gt; CFRunLoopTimerRef</span><br><span class="line">	|--&gt; CFRunLoopObserverRef</span><br></pre></td></tr></table></figure>
+<h4 id="技术的底层原理和关键实现"><a href="#技术的底层原理和关键实现" class="headerlink" title="技术的底层原理和关键实现"></a>技术的底层原理和关键实现</h4><p>内部是一个do-while循环,在循环中不断的处理各种任务(Source, Timer, Observer),在没有需要处理的事件时,就进入休眠状态.<br>在有事件进入时,触发mach_msg()唤醒RunLoop</p>
+<h4 id="已有的实现和它之间的对比"><a href="#已有的实现和它之间的对比" class="headerlink" title="已有的实现和它之间的对比"></a>已有的实现和它之间的对比</h4><p>Android的Looper</p>
+
       
     </div>
     
@@ -385,12 +381,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/QBook/" rel="tag"># QBook</a>
-          
-        </div>
-      
 
       
       
@@ -400,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/30/Flutter-DB/" rel="next" title="Flutter DB">
-                <i class="fa fa-chevron-left"></i> Flutter DB
+              <a href="/2021/04/21/启动流程/" rel="next" title="启动流程">
+                <i class="fa fa-chevron-left"></i> 启动流程
               </a>
             
           </div>
@@ -409,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/12/QBook-02/" rel="prev" title="QBook-02">
-                QBook-02 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +523,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RunLoop"><span class="nav-number">1.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题"><span class="nav-number">1.1.</span> <span class="nav-text">RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个技术的优势和劣势分别是什么-或者说-这个技术的trade-off是什么"><span class="nav-number">1.2.</span> <span class="nav-text">这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个技术使用的场景"><span class="nav-number">1.3.</span> <span class="nav-text">这个技术使用的场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术的组成部分和关键点"><span class="nav-number">1.4.</span> <span class="nav-text">技术的组成部分和关键点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术的底层原理和关键实现"><span class="nav-number">1.5.</span> <span class="nav-text">技术的底层原理和关键实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已有的实现和它之间的对比"><span class="nav-number">1.6.</span> <span class="nav-text">已有的实现和它之间的对比</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
