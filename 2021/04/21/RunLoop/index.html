@@ -1,37 +1,771 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="RunLoopRunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题RunLoop是什么?RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制 解决的问题cell滑动时timer停止的问题常驻线程 这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么这个技术使用的场景OSX和iOS系统,Mac,iPhone等苹果设备每个线程内部都有一个消息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RunLoop">
+<meta property="og:url" content="http://yoursite.com/2021/04/21/RunLoop/index.html">
+<meta property="og:site_name" content="Lim">
+<meta property="og:description" content="RunLoopRunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题RunLoop是什么?RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制 解决的问题cell滑动时timer停止的问题常驻线程 这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么这个技术使用的场景OSX和iOS系统,Mac,iPhone等苹果设备每个线程内部都有一个消息">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-04-21T09:41:31.000Z">
+<meta property="article:modified_time" content="2021-04-22T07:04:40.268Z">
+<meta property="article:author" content="Lim">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/04/21/RunLoop/"/>
+
+
+
+
+
+  <title>RunLoop | Lim</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lim</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/21/RunLoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lim">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RunLoop</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-21T17:41:31+08:00">
+                2021-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/21/RunLoop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/21/RunLoop/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h3><h4 id="RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题"><a href="#RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题" class="headerlink" title="RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题"></a>RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h4><p>RunLoop是什么?<br>RunLoop是一种允许线程在任何时候不需要退出的情况下处理事件的机制</p>
+<h5 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h5><p>cell滑动时timer停止的问题<br>常驻线程</p>
+<h4 id="这个技术的优势和劣势分别是什么-或者说-这个技术的trade-off是什么"><a href="#这个技术的优势和劣势分别是什么-或者说-这个技术的trade-off是什么" class="headerlink" title="这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么"></a>这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么</h4><h4 id="这个技术使用的场景"><a href="#这个技术使用的场景" class="headerlink" title="这个技术使用的场景"></a>这个技术使用的场景</h4><p>OSX和iOS系统,Mac,iPhone等苹果设备<br>每个线程内部都有一个消息循环(RunLoop),只有主线程的RunLoop默认开启,子线程的RunLoop默认不开启.</p>
+<h4 id="技术的组成部分和关键点"><a href="#技术的组成部分和关键点" class="headerlink" title="技术的组成部分和关键点"></a>技术的组成部分和关键点</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CFRunLoopRef</span><br><span class="line">|-&gt; CFRunLoopModeRef</span><br><span class="line">	|--&gt; CFRunLoopSourceRef</span><br><span class="line">	|--&gt; CFRunLoopTimerRef</span><br><span class="line">	|--&gt; CFRunLoopObserverRef</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="技术的底层原理和关键实现"><a href="#技术的底层原理和关键实现" class="headerlink" title="技术的底层原理和关键实现"></a>技术的底层原理和关键实现</h4><p>内部是一个do-while循环,在循环中不断的处理各种任务(Source, Timer, Observer),在没有需要处理的事件时,就进入休眠状态.<br>在有事件进入时,触发mach_msg()唤醒RunLoop</p>
+<h4 id="已有的实现和它之间的对比"><a href="#已有的实现和它之间的对比" class="headerlink" title="已有的实现和它之间的对比"></a>已有的实现和它之间的对比</h4><p>Android的Looper</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a target="_blank" rel="noopener" href="https://prafullkumar77.medium.com/ios-run-loop-what-why-when-7febead400b7">资料一</a><br><a target="_blank" rel="noopener" href="https://blog.ibireme.com/2015/05/18/runloop/">资料二</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6869669153922367496">资料三</a><br><a target="_blank" rel="noopener" href="http://szuwest.github.io/shi-jian-xun-huan-ji-zhi-zhi-yu-androidde-looperhe-iosde-nsrunloop.html">资料四</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/21/%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" rel="next" title="启动流程">
+                <i class="fa fa-chevron-left"></i> 启动流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/22/%E9%93%BE%E6%8E%A5%E5%99%A8/" rel="prev" title="链接器">
+                链接器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RunLoop"><span class="nav-number">1.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RunLoop%E5%87%BA%E7%8E%B0%E7%9A%84%E8%83%8C%E6%99%AF%E3%80%81%E5%88%9D%E8%A1%B7%E5%92%8C%E8%A6%81%E8%BE%BE%E5%88%B0%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E7%9B%AE%E6%A0%87%E6%88%96%E6%98%AF%E8%A6%81%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">RunLoop出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">解决的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E5%8A%A3%E5%8A%BF%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88-%E6%88%96%E8%80%85%E8%AF%B4-%E8%BF%99%E4%B8%AA%E6%8A%80%E6%9C%AF%E7%9A%84trade-off%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.</span> <span class="nav-text">这个技术的优势和劣势分别是什么,或者说,这个技术的trade-off是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E6%8A%80%E6%9C%AF%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.</span> <span class="nav-text">这个技术使用的场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E5%92%8C%E5%85%B3%E9%94%AE%E7%82%B9"><span class="nav-number">1.4.</span> <span class="nav-text">技术的组成部分和关键点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E5%92%8C%E5%85%B3%E9%94%AE%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">技术的底层原理和关键实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%AE%83%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.</span> <span class="nav-text">已有的实现和它之间的对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.7.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lim</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 't48EeBrKG6r3bfcSFyOICVlg-gzGzoHsz',
+        appKey: '8eemS63KNHGSHIFF9n6a0ve5',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
